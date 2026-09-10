@@ -1,6 +1,6 @@
 # Tic Tac Toe – Vue 3 + Vite
 
-Mini application Tic Tac Toe developed by Vue 3 and Vite, using Composition API and a composable to manage game logic.
+Mini application Tic Tac Toe developed using Vue 3 and Vite, using Composition API and a composable to manage game logic.
 
 ## Tecnologies
 
