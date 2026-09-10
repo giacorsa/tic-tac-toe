@@ -1,56 +1,56 @@
 # Tic Tac Toe – Vue 3 + Vite
 
-Mini applicazione Tic Tac Toe sviluppata con Vue 3 e Vite, usando la Composition API e un composable per gestire la logica di gioco.
+Mini application Tic Tac Toe developed by Vue 3 and Vite, using Composition API and a composable to manage game logic.
 
-## Tecnologie
+## Tecnologies
 
 - Vue 3 (Composition API, `<script setup>`)
 - Vite
 - JavaScript
 
-## Struttura principale
+## MAin STructure
 
 ### `src/App.vue`
 
-- Importa il composable `useTicTacToe`.
-- Gestisce lo stato del gioco (board, currentPlayer, winner) tramite il composable.
-- Mostra:
-  - titolo del gioco
-  - turno corrente
-  - eventuale vincitore
-  - bottone di reset
-- Passa la board al componente `Board`:
+- It imports the composable `useTicTacToe`.
+- It manages state game (board, currentPlayer, winner) by the composable.
+- It shows:
+  - game title
+  - actual turn
+  - probably winner
+  - reset button
+- Pass the board to the component `Board`:
   - `:board="board"`
-  - ascolta l’evento `@play="playAt"`
+  - It listen the event `@play="playAt"`
 
 ### `src/components/Board.vue`
 
-- Riceve la board come prop.
-- La trasforma in 9 celle usando `v-for`.
-- Per ogni cella:
-  - passa il valore al componente `Cell` (`:value="value"`)
-  - intercetta il click e emette l’evento `play` verso il padre (`emit('play', index)`).
+- receives the board as a prop.
+- The board has rasformed in 9 cells using `v-for`.
+- For every cell:
+  - it pass the value to the component `Cell` (`:value="value"`)
+  - intercepts the click and emits the `play` event to the parent (`emit('play', index)`).
 
 ### `src/components/Cell.vue`
 
-- Riceve il valore della singola cella come prop (`value`).
-- Mostra il contenuto (`X`, `O` o vuoto).
-- Non contiene logica di gioco, è solo un componente di presentazione.
+- It receives the single cell value as prop (`value`).
+- It shows the content (`X`, `O` or empty).
+- It doesn't contain game logic, it's just presentqztion component.
 
 ### `src/composables/useTicTacToe.js`
 
-- Contiene lo **stato reattivo**:
-  - `board` → array di 9 celle
+- It contains the **reactive state**:
+  - `board` → 9 cells array
   - `currentPlayer` → `"X"` o `"O"`
   - `winner` → `null` o `"X"`/`"O"`
-- Contiene la **logica di gioco**:
-  - `playAt(index)` → gestisce la mossa
-  - `checkWinner()` → controlla le combinazioni vincenti
-  - `resetGame()` → resetta lo stato del gioco
+- It contains the **game logic**:
+  - `playAt(index)` → It manages the move
+  - `checkWinner()` → It checks the winning combinations.
+  - `resetGame()` → resetta game state
 
-## Installazione
+## Installation
 
 ```bash
 npm install
 npm run dev
-Apri il browser su l’URL indicato da Vite (di solito http://localhost:5173).
+Open the browser on the URL indicated by Vite (usually http://localhost:5173).
