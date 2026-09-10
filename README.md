@@ -8,7 +8,7 @@ Mini application Tic Tac Toe developed using Vue 3 and Vite, using Composition A
 - Vite
 - JavaScript
 
-## MAin STructure
+## Main Structure
 
 ### `src/App.vue`
 
