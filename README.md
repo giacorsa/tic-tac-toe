@@ -2,7 +2,7 @@
 
 Mini application Tic Tac Toe developed using Vue 3 and Vite, using Composition API and a composable to manage game logic.
 
-## Tecnologies
+## Technologies
 
 - Vue 3 (Composition API, `<script setup>`)
 - Vite
@@ -17,7 +17,7 @@ Mini application Tic Tac Toe developed using Vue 3 and Vite, using Composition A
 - It shows:
   - game title
   - actual turn
-  - probably winner
+  - possibl winner
   - reset button
 - Pass the board to the component `Board`:
   - `:board="board"`
@@ -26,7 +26,7 @@ Mini application Tic Tac Toe developed using Vue 3 and Vite, using Composition A
 ### `src/components/Board.vue`
 
 - receives the board as a prop.
-- The board has rasformed in 9 cells using `v-for`.
+- The board has trasformed in 9 cells using `v-for`.
 - For every cell:
   - it pass the value to the component `Cell` (`:value="value"`)
   - intercepts the click and emits the `play` event to the parent (`emit('play', index)`).
@@ -35,7 +35,7 @@ Mini application Tic Tac Toe developed using Vue 3 and Vite, using Composition A
 
 - It receives the single cell value as prop (`value`).
 - It shows the content (`X`, `O` or empty).
-- It doesn't contain game logic, it's just presentqztion component.
+- It doesn't contain game logic, it's just presentation component.
 
 ### `src/composables/useTicTacToe.js`
 

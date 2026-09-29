@@ -1,14 +1,15 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export function useTicTacToe() {
   const board = ref(Array(9).fill(null))
   const currentPlayer = ref('X')
   const winner = ref(null)
+  const winningLine = ref(null)
 
   const wins = [
-    [0,1,2], [3,4,5], [6,7,8], // righe
-    [0,3,6], [1,4,7], [2,5,8], // colonne
-    [0,4,8], [2,4,6]           // diagonali
+    [0,1,2], [3,4,5], [6,7,8],
+    [0,3,6], [1,4,7], [2,5,8],
+    [0,4,8], [2,4,6]
   ]
 
   const checkWinner = () => {
@@ -19,9 +20,14 @@ export function useTicTacToe() {
         board.value[a] === board.value[c]
       ) {
         winner.value = board.value[a]
+        winningLine.value = [a, b, c]
       }
     }
   }
+
+  const isDraw = computed(() => 
+    !winner.value && board.value.every(cell => cell !== null)
+  )
 
   const playAt = (index) => {
     if (winner.value || board.value[index]) return
@@ -38,12 +44,15 @@ export function useTicTacToe() {
     board.value = Array(9).fill(null)
     currentPlayer.value = 'X'
     winner.value = null
+    winningLine.value = null
   }
 
   return {
     board,
     currentPlayer,
     winner,
+    winningLine,
+    isDraw,
     playAt,
     resetGame
   }

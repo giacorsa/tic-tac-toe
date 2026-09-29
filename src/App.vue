@@ -6,6 +6,8 @@
     board,
     currentPlayer,
     winner,
+    winningLine,
+    isDraw,
     playAt,
     resetGame
   } = useTicTacToe()
@@ -16,17 +18,25 @@
     <h1>Tic Tac Toe</h1>
 
     <p v-if="winner" class="winner">
-      🎉 Vincitore: {{ winner }}
+      🎉 Winner: {{ winner }}
+    </p>
+
+    <p v-else-if="isDraw" class="draw">
+      🤝 Draw!
     </p>
 
     <p v-else class="turn">
-      Turno: <strong>{{ currentPlayer }}</strong>
+      Turn: <strong>{{ currentPlayer }}</strong>
     </p>
 
-    <Board :board="board" @play="playAt" />
+    <Board 
+      :board="board"
+      :winningLine="winningLine" 
+      @play="playAt" 
+    />
 
     <button class="reset-btn" @click="resetGame">
-      Reset
+      Reset Game
     </button>
   </div>
 </template>
@@ -59,5 +69,10 @@
   }
   .reset-btn:hover {
     opacity: 0.8;
+  }
+
+  .draw {
+    font-size: 1.4rem;
+    color: #ff9800;
   }
 </style>

@@ -2,7 +2,8 @@
     import Cell from './Cell.vue'
 
     defineProps({
-        board: Array
+        board: Array,
+        winningLine: Array
     })
 
     const emit = defineEmits(['play'])
@@ -14,7 +15,8 @@
       v-for="(value, index) in board"
       :key="index"
       :value="value"
-      @click="emit('play', index)"
+      :isWinning="winningLine?.includes(index)"
+      @select="emit('play', index)"
     />
   </div>
 </template>

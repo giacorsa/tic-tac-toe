@@ -1,13 +1,21 @@
 <script setup>
+    const emit = defineEmits(['select'])
+
     defineProps({
-        value: String
+        value: String,
+        isWinning: Boolean
     })
 </script>
 
 <template>
-  <div class="cell">
+  <button 
+    class="cell"
+    :class="{ winning: isWinning}"
+    @click="emit('select')"
+    :disabled="!!value"
+  >
     {{ value }}
-  </div>
+  </button>
 </template>
 
 <style scoped>
@@ -26,5 +34,10 @@
 
     .cell:hover {
         background: #e0e0e0;
+    }
+
+    .cell:disabled {
+        background: #c8ffc8;
+        border: 2px solid #4caf50;
     }
 </style>
