@@ -17,7 +17,7 @@ Mini application Tic Tac Toe developed using Vue 3 and Vite, using Composition A
 - It shows:
   - game title
   - actual turn
-  - possibl winner
+  - possible winner
   - reset button
 - Pass the board to the component `Board`:
   - `:board="board"`
